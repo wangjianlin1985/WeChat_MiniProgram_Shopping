@@ -1,0 +1,23 @@
+<view class="main">
+
+  <!--地址管理-->
+  <radio-group wx:for="{{address}}" wx:key="{{index}}">
+    <view class="address">
+      <view class="address-icon" bindtap="selectAddr" data-id="{{item.id}}">
+        <radio checked="{{item.selected}}" value="{{index}}" />
+      </view>
+
+      <view class="address-detail">
+        <view class="address-name-phone">
+          <text class="address-name">{{item.linkMan}}</text>
+          <text class="address-phone">{{item.linkPhone}}</text>
+        </view>
+        <view class="address-info">{{item.linkAddr}}</view>        
+      </view>
+    </view>
+  </radio-group>
+
+  <navigator url="../address/address">
+    <view class="orders-no-address">添加收货地址</view>
+  </navigator>
+</view>

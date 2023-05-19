@@ -1,0 +1,42 @@
+<view class="main">
+    <swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}" circular="true">
+        <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+            <swiper-item>
+                <image src="{{item}}" class="slide-image" width="100%"/>
+            </swiper-item>
+        </block>
+    </swiper>
+
+    <view class="search df search_arr">
+      <input class="df_1" placeholder="请输入你要搜索的内容" value="{{searchValue}}" bindinput="searchValueInput" />
+      <button bindtap="searchGoods">
+        <icon class="searchcion" color="#D0D0D0" type='search'></icon>
+      </button>
+    </view>
+    
+    <view class="newest" wx:if="{{hasSales}}">
+        <view class="newest-title"><text>活动爆款</text></view>
+        <view class="newest-box">
+            <view class="newest-list" wx:for="{{goodsList}}" wx:key="goodsNo">
+                <navigator url="goods/details?goodsNo={{item.goodsNo}}">
+                    <image src="{{item.mainLogo}}"></image>
+                    <view class="newest-text"><text>{{item.name}} {{item.sellPrice}}元</text></view>
+                    <view class="newest-text"><text>{{item.weight}} {{item.weightUnit}}</text></view>
+                </navigator>
+            </view>
+        </view>
+    </view> 
+
+    <view class="newest">
+        <view class="newest-title"><text>在售商品</text></view>
+        <view class="newest-box">
+            <view class="newest-list" wx:for="{{goodsList}}" wx:key="goodsNo">
+                <navigator url="goods/details?goodsNo={{item.goodsNo}}">
+                    <image src="{{item.mainLogo}}"></image>
+                    <view class="newest-text"><text>{{item.name}} {{item.sellPrice}}元</text></view>
+                    <view class="newest-text"><text>{{item.weight}} {{item.weightUnit}}</text></view>
+                </navigator>
+            </view>
+        </view>
+    </view>   
+</view>

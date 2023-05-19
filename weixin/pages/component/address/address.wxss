@@ -1,0 +1,58 @@
+@import '../../common/common.wxss';
+
+.form-box {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  font-size: 28rpx;
+}
+
+.form-box input {
+  height: 80rpx;
+  line-height: 80rpx;
+  border: 1rpx solid #ededed;
+  border-radius: 10rpx;
+  color: #999;
+  margin-bottom: 30rpx;
+}
+
+.form-box textarea {
+  height: 160rpx;
+  width:100%;
+  line-height: 160rpx;
+  border: 1rpx solid #ededed;
+  border-radius: 10rpx;
+  color: #999;
+  margin-bottom: 30rpx;
+}
+
+.form-box .input-placeholder {
+  color: #aaa;
+}
+
+.form-box button {
+  margin-top: 30rpx;
+  background-color: #008B8B;
+  color: #fff;
+}
+
+.address-default {
+  height: 100rpx;  
+  line-height: 90rpx;
+  border-bottom: 1rpx solid #ededed;
+}
+
+.address-default text {
+  color: rgba(92, 88, 88, 0.932);
+  vertical-align: center;
+}
+
+.form-box .address-title {
+  color: rgba(92, 88, 88, 0.932);
+  margin-bottom:10rpx;
+  margin-top:10rpx;
+  font-size:28rpx;
+}
+
+.switch-right{
+  float: right;
+}

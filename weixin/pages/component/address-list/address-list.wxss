@@ -1,0 +1,64 @@
+@import '../../common/common.wxss';
+
+.address {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #fff;
+  margin-top: 1px;
+  padding: 20rpx;
+  margin: 10rpx 0;
+}
+
+.address-icon {
+  width: 90rpx;
+}
+
+.address-detail {
+  width: 590rpx;
+  font-size: 12px;
+  color: #adadad;
+}
+
+.address-name-phone {
+  margin-bottom: 10rpx; 
+  color: #7f7f7f; 
+  font-weight: 900;
+}
+
+.address-name{
+  margin-right: 20rpx;
+}
+
+.address-info {
+  margin-bottom: 10rpx;
+}
+
+.address-edit {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-top: 1px #efeff4 solid;
+  padding-top: 30rpx;
+}
+
+.orders-no-address{
+    position: relative;
+    height: 90rpx;
+    line-height: 90rpx;
+    color: #adadad;
+    border-top: 20rpx solid #ededed;
+    border-bottom: 1rpx solid #ededed;
+    text-align: center;
+}
+.orders-no-address::after{
+    position: absolute;
+    right: 30rpx;
+    top: 34rpx;
+    content: '';
+    width: 16rpx;
+    height: 16rpx;
+    border-top: 4rpx solid #7f7f7f;
+    border-right: 4rpx solid #7f7f7f;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}

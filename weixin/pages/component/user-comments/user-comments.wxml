@@ -1,0 +1,28 @@
+<view class="main">
+    <!-- 地址 -->
+    <view class="orders-address limit">
+        <text class="orders-address-name">收货人: {{orderInfo.linkMan}}</text>
+        <text class="orders-address-phone">电话: {{orderInfo.linkPhone}}</text>
+        <view class="orders-address-detail">{{orderInfo.linkAddr}}</view>
+    </view>
+
+    <!-- 订单 -->
+    <view class="orders-box limit">
+        <view class="orders-list">
+            <image class="orders-thumb" src="{{orderInfo.filePath}}"></image>
+            <view class="orders-pro-name">{{orderInfo.goodsName}}</view>
+            <view class="orders-pro-price">￥{{orderInfo.sellPrice}} ×{{orderInfo.goodsNum}}件</view>
+        </view>
+    </view>
+
+    <!-- 评价 -->
+    <view wx:if="{{orderInfo.orderStatus == '6'}}">
+      <view>评分等级：{{orderComment1.goodsStar}}</view>
+      <view>评论内容：{{orderComment1.content}}</view>
+    </view>
+
+    <!-- 售后 -->
+    <view wx:if="{{orderInfo.orderStatus == '7'}}">
+      <view>申请说明：{{orderComment2.content}}</view>
+    </view>
+</view>

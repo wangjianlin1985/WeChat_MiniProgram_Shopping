@@ -1,0 +1,28 @@
+<view class="main">
+
+  <!--地址管理-->
+  <radio-group wx:if="{{hasAddress}}" wx:for="{{address}}" wx:key="{{index}}">
+    <view class="address">
+      <view class="address-detail">
+        <view class="address-name-phone">
+          <text class="address-name">{{item.linkMan}}</text>
+          <text class="address-phone">{{item.linkPhone}}</text>
+        </view>
+        <view class="address-info">{{item.linkAddr}}</view>
+        <view class="address-edit">
+          <view>
+            <text hidden="{{item.defaultAddr==0?true:false}}" style="color:red" data-id="{{item.id}}">默认地址</text>
+            <text hidden="{{item.defaultAddr==0?true:false}}"> | </text>
+            <text bindtap="delAddress" data-id="{{item.id}}" data-index="{{index}}">删除</text>
+            <text> | </text>
+            <text bindtap="updateAddress" data-id="{{item.id}}">编辑</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </radio-group>
+
+  <navigator url="../address/address">
+    <view class="orders-no-address">添加收货地址</view>
+  </navigator>
+</view>

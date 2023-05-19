@@ -1,0 +1,119 @@
+<view class="main">
+  <!-- 产品图片轮播，显示5张 -->
+  <swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}" circular="true">
+    <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+      <swiper-item>
+        <image src="{{item.filePath}}" class="slide-image" width="100%" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="goods-box">
+    <!-- 商品简介 -->
+    <view style="width:60%">
+      <view class="goods-title">产品名称：{{goodsInfo.name}}</view>
+      <view class="goods-title">规格：{{goodsInfo.weight}}{{goodsInfo.weightUnit}}</view>
+      <view class="goods-title">售价：￥{{goodsInfo.sellPrice}}</view>
+      <view class="goods-title">产地：{{goodsInfo.growPlace}}</view>
+    </view>
+    <!-- 购物车链接 -->
+    <navigator open-type="switchTab" url="../cart/cart">
+      <view class="carts-icon {{scaleCart?'on':''}}">
+        <image src="/images/icons/add_cart2.png"></image>
+        <text class="carts-icon-num" wx:if="{{hasCarts}}">{{totalNum}}</text>
+      </view>
+    </navigator>
+  </view>
+
+  <view class="goods-tab-box">
+    <view class="goods-tab-nav {{curIndex === 0 ?'on':''}}" bindtap="bindTap" data-index="0">图文详情</view>
+    <view class="goods-tab-nav {{curIndex === 1 ?'on':''}}" bindtap="bindTap" data-index="1">产品参数</view>
+    <view class="goods-tab-nav {{curIndex === 2 ?'on':''}}" bindtap="bindTap" data-index="2">用户评价</view>
+    
+    <view class="goods-content">
+      <!-- 图文详情 -->
+      <view wx:if="{{curIndex === 0}}">
+        <view class="newest-box">
+          <view class="newest-list" wx:for="{{imageList}}" wx:key="id">
+            <image src="{{item.filePath}}"></image>
+          </view>
+        </view>
+      </view>
+
+      <!-- 产品参数 -->
+      <view class="goods-content-detail" wx:if="{{curIndex === 1}}">
+        <view class="goods-detail">
+          <text class="goods-detail-title">编号：</text>
+          <text>{{goodsInfo.goodsNo}}</text>
+        </view>
+        <view class="goods-detail">
+          <text class="goods-detail-title">名称：</text>
+          <text>{{goodsInfo.name}}</text>
+        </view>
+        <view class="goods-detail">
+          <text class="goods-detail-title">规格：</text>
+          <text>{{goodsInfo.weight}}{{goodsInfo.weightUnit}}</text>
+        </view>
+        <view class="goods-detail">
+          <text class="goods-detail-title">售价：</text>
+          <text>{{goodsInfo.sellPrice}}</text>
+        </view>
+        <view class="goods-detail">
+          <text class="goods-detail-title">产地：</text>
+          <text>{{goodsInfo.growPlace}}</text>
+        </view>
+        <view class="goods-detail">
+          <text class="goods-detail-title">发货地：</text>
+          <text>{{goodsInfo.sendPlace}}</text>
+        </view>
+        <view class="goods-detail">
+          <text class="goods-detail-title">发货时间：</text>
+          <text>{{goodsInfo.sendTerm}}</text>
+        </view>
+        <view class="goods-detail">
+          <text class="goods-detail-title">发货说明：</text>
+          <text>{{goodsInfo.sendAddition}}</text>
+        </view>
+        <view class="goods-detail">
+          <text class="goods-detail-title">快递：</text>
+          <text>{{goodsInfo.express}}</text>
+        </view>
+        <view class="goods-detail">
+          <text class="goods-detail-title">快递费：</text>
+          <text>{{goodsInfo.expressPrice}}元</text>
+        </view>
+        <view class="goods-detail">
+          <text class="goods-detail-title">售前须知：</text>
+          <text>{{goodsInfo.beforeSell}}</text>
+        </view>
+        <view class="goods-detail">
+          <text class="goods-detail-title">售后须知：</text>
+          <text>{{goodsInfo.afterSell}}</text>
+        </view>
+      </view>
+
+      <!-- 商品评价 -->
+      <view class="goods-content-detail" wx:if="{{curIndex === 2}}">
+        <view>{{goodsInfo.afterSell}}</view>
+      </view>
+    </view>    
+  </view>
+
+  <!---底部开始-->
+  <view class="footfixed tc">
+    <view class="fl_l w40 font_12 df">
+      <view class="df_1 l_h15">
+        <contact-button size="30" class='pos'></contact-button>
+        <image class="icon_kf" src="/images/icons/kefu.png" style=""></image>
+        <view class="dbtext">客服</view>
+      </view>
+      <view class="df_1 l_h15" bindtap="goToCart">
+        <image class="icon_kf" src="/images/icons/cart.png"></image>
+        <view class="dbtext">购物车</view>
+      </view>
+    </view>
+    <view class="fl_l w60">
+      <view class="w50 fl_l bg_green white" bindtap="addToCart" data-type="addcart">加入购物车</view>
+      <view class="bg_cheng white w50 fl_l" bindtap="setModalStatus">立刻购买</view>
+    </view>
+  </view>
+</view>

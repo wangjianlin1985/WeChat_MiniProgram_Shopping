@@ -1,0 +1,66 @@
+@import '../../common/common.wxss';
+
+.address {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #fff;
+  margin-top: 1px;
+  padding: 20rpx;
+  margin: 10rpx 0;  
+  border-bottom: 20rpx solid #ededed;
+}
+
+.address-detail {
+  font-size: 12px;
+  color: #adadad;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+.address-name-phone {
+  margin-bottom: 10rpx;
+  color: #7f7f7f;
+  font-weight: 900;
+}
+
+.address-name {
+  margin-right: 20rpx;
+}
+
+.address-info {
+  margin-bottom: 10rpx;
+  padding-bottom: 10px;
+  border-bottom: 1px #efeff4 solid;
+}
+
+.address-edit {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-top: 10rpx;
+  float: right;
+  color: #008B8B;
+  font-weight: 700;
+}
+
+.orders-no-address {
+  position: relative;
+  height: 90rpx;
+  line-height: 90rpx;
+  color: #adadad;
+  border-bottom: 1rpx solid #ededed;
+  text-align: center;
+}
+
+.orders-no-address::after {
+  position: absolute;
+  right: 30rpx;
+  top: 34rpx;
+  content: '';
+  width: 16rpx;
+  height: 16rpx;
+  border-top: 4rpx solid #7f7f7f;
+  border-right: 4rpx solid #7f7f7f;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}

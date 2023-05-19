@@ -1,0 +1,17 @@
+<view class="main">
+    <view class="form-box">
+        <form bindsubmit="formSubmit">
+            <view class="address-title">姓名</view>
+            <input value="{{address.linkMan}}" name="linkMan" maxlength="16"/>
+            <view class="address-title">电话号码</view>
+            <input type="number" name="linkPhone" value="{{address.linkPhone}}" maxlength="11"/>
+            <view class="address-title">详细地址</view>
+            <textarea name="linkAddr" value="{{address.linkAddr}}" fixed />
+            <view class="address-default">
+              <text>设为默认</text>
+              <view class="switch-right"><switch checked="{{isDefault}}" bindchange="switchChange" /></view>
+            </view>            
+            <button form-type="submit">保存</button>
+        </form>
+    </view>
+</view>

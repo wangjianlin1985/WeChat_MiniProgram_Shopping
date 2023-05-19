@@ -1,0 +1,97 @@
+<view class="main">
+    <!-- 地址 -->
+    <view class="orders-address limit">
+        <text class="orders-address-name">收货人: {{orderInfo.linkMan}}</text>
+        <text class="orders-address-phone">电话: {{orderInfo.linkPhone}}</text>
+        <view class="orders-address-detail">{{orderInfo.linkAddr}}</view>
+    </view>
+
+    <!-- 订单 -->
+    <view class="orders-box">
+        <view class="orders-list">
+            <image class="orders-thumb" src="{{orderInfo.filePath}}"></image>
+            <view class="orders-pro-name">{{orderInfo.goodsName}}</view>
+            <view class="orders-pro-price">￥{{orderInfo.sellPrice}} ×{{orderInfo.goodsNum}}件</view>
+        </view>
+    </view>
+
+    <!-- 评价 -->
+    <view class="comments" wx:if="{{orderInfo.orderStatus == '6'}}">
+      <!-- 显示评价 -->
+      <view wx:if="{{hasComments1}}">
+        <view class='score-view'>
+          <view class='score-left'>
+              <view>
+                  <text>我的评分：</text>
+              </view>
+          </view>
+          <view class='score-right'>
+              <view wx:for="{{userStars}}" wx:key="index" data-index="{{index}}" bindtap="starTap">
+                  <image src="{{item}}" />
+              </view>
+          </view>
+        </view>
+        <view class='score'>
+          <view class='score-left'>
+              <view>
+                  <text>我的评价：</text>
+              </view>
+          </view>
+          <view class='score-pingjia'>
+            <text>{{pingjiaContent}}</text>
+          </view>
+        </view>
+        <view class='textarea-view'>
+            <view class='picture'>
+                <view class='picture_upload' bindtap="" wx:for-items="{{orderImages}}" wx:for-item="orderImage" wx:key="index" >
+                    <view wx:if="{{orderImage.bizType == '2'}}">
+                      <image src='{{orderImage.filePath}}'  />
+                    </view>
+                </view>  
+            </view>
+        </view>
+      </view>
+
+      <!-- 添加评价 -->
+      <view wx:else>
+        <view class='score'>
+          <view class='score-left'>
+              <view>
+                  <text>我的评分：</text>
+              </view>
+          </view>
+          <view class='score-right'>
+              <view wx:for="{{userStars}}" wx:key="index" data-index="{{index}}" bindtap="starTap">
+                  <image src="{{item}}" />
+              </view>
+              <view class='score_text'>
+                  <button class="weui-btn" bindtap="onSubmit" type="primary">提交</button>
+              </view>
+          </view>
+        </view>
+      
+        <view class='textarea'>
+            <textarea placeholder-class='textarea-text' placeholder='宝贝满足您的期待吗？请输入50字以内的评价，给想买的他人一点建议吧。' bindinput="bindinput" maxlength="50"></textarea>
+            <view class='picture'>
+                <view class='picture' wx:if="{{!is_upload}}">
+                    <view class='picture_item' bindtap="chooseImage">
+                        <image src='{{camera_pic}}'  />
+                    </view>
+                </view>
+                <view wx:else  class='picture'>
+                    <view class='picture_upload' bindtap="" wx:for-items="{{upload_pic}}" wx:for-item="pic" wx:key="index" >
+                        <image  src='{{pic}}'  />
+                        <!-- <view class='picture_delete' bindtap='deletePic' data-pic_index='{{index}}'>
+                            <image src='{{delete_ico}}' />
+                        </view> -->
+                    </view>    
+                    <view class='picture_item' bindtap="chooseImage" hidden="{{pic_length}}">
+                        <image src='{{camera_pic}}'  />
+                    </view>
+                </view>  
+            </view>
+        </view>
+      </view>
+    </view>
+      
+</view>

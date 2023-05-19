@@ -1,0 +1,61 @@
+<view class="main">
+  <view class="header">
+    <image src="{{thumb}}" class="thumb"></image>
+    <text class="nickname">{{nickname}}</text>
+    <text class="about">关于我们</text>
+  </view>
+  <!--订单详情-->
+  <navigator url="../user-orders/user-orders">
+    <view class="order-list">全部订单</view>
+  </navigator>
+
+  <view class="order-title">
+    <navigator class="order-title-navigator" url="../user-orders/user-orders?currentTab=0">
+      <view>
+        <image src="/images/icons/dfk.png"></image>
+      </view>
+      <text>待付款
+        <text class="order-total">({{orderInfo.dfkTotal}})</text>
+      </text>
+    </navigator>
+
+    <navigator class="order-title-navigator" url="../user-orders/user-orders?currentTab=1">
+      <view>
+        <image src="/images/icons/dfh.png"></image>
+      </view>
+      <text>待发货
+        <text class="order-total">({{orderInfo.dfhTotal}})</text>
+      </text>
+    </navigator>
+
+    <navigator class="order-title-navigator" url="../user-orders/user-orders?currentTab=2">
+      <view>
+        <image src="/images/icons/dsh.png"></image>
+      </view>
+      <text>待收货
+        <text class="order-total">({{orderInfo.dshTotal}})</text>
+      </text>
+    </navigator>
+
+    <navigator class="order-title-navigator" url="../user-orders/user-orders?currentTab=5">
+      <view>
+        <image src="/images/icons/tksh.png"></image>
+      </view>
+      <text>退款/售后
+        <text class="order-total">({{orderInfo.thshTotal}})</text>
+      </text>
+    </navigator>
+  </view>
+
+  <navigator url="../user-address/user-address">
+    <view class="order-list">地址管理</view>
+  </navigator>
+
+  <navigator url="../user-address/user-address">
+    <view class="order-list">系统消息</view>
+  </navigator>
+
+  <navigator url="../user-address/user-address">
+    <view class="order-list">联系客服</view>
+  </navigator>  
+</view>
